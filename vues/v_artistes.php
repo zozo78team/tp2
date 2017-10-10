@@ -1,6 +1,4 @@
-<div id="page">
-	<div id="content">
-		<div class="box">
+
 			<h2>Liste des artistes</h2>
 			<section>
 			<?php
@@ -8,7 +6,7 @@
 			{ ?>
 				<a class="btn" href='index.php?uc=Artistes&action=ajouter'>Ajouter un artiste</a>
 			<?php } ?>
-			<table><tr><th>Numéro</th><th>Nom</th><th>actions</th></tr>
+			<table><tr><th>Numéro</th><th>Nom</th><th>Actions</th></tr>
 			<script>
 			function supprArtiste(id) {
 				if(confirm("Voulez vous vraimer supprimer cet artiste. Attention la suppression de l'artiste entrainera la suppression de tous ses albums ?"))
@@ -42,8 +40,5 @@
 			?>
 			</table>
 			</section>
-		</div>
-	</div>
 	<br class="clearfix" />
-</div>
 
