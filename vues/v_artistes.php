@@ -2,10 +2,10 @@
 			<h2>Liste des artistes</h2>
 			<section>
 			<?php
-			If (!empty( $_SESSION['connexion'])) // si quelqu'un est connecté
-			{ ?>
+			//If (!empty( $_SESSION['connexion'])) // si quelqu'un est connecté
+			//{ ?>
 				<a class="btn" href='index.php?uc=Artistes&action=ajouter'>Ajouter un artiste</a>
-			<?php } ?>
+			<?php //} ?>
 			<table><tr><th>Numéro</th><th>Nom</th><th>Actions</th></tr>
 			<script>
 			function supprArtiste(id) {

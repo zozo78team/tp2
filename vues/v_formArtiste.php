@@ -11,7 +11,7 @@
 			<section>
 				<form action='index.php?uc=Artistes&action=VerifForm' method='post'>
 				<input type='hidden' name="idArtiste" value='<?php if(!empty($_REQUEST['numart'])){echo $LeArtiste->getId();}?>'>
-				<label for "nomArtiste">Nom de l'artiste</label> <input type="text" name="nomArtiste" id="nomArtiste"
+				<label for ="nomArtiste">Nom de l'artiste</label> <input type="text" name="nomArtiste" id="nomArtiste"
 				value="<?php if(!empty($_REQUEST['numart'])){echo $LeArtiste->getNom();} ?>">
 				<input type="submit" value="<?php if(!empty($_REQUEST['numart'])){echo "Modifier l'artiste";}else{echo "Ajouter l'artiste";} ?>" />
 				</form>

@@ -11,21 +11,21 @@ switch($action)
 		}
 	case 'artiste': //on vient de choisir un artiste on est repassé par index
 		{
-		//on fait appel à la méthode getAlbums d'Artist avec le numéro d'artiste
-		//on inclut la vue v_albArt qui affiche les albums
-		$Artiste=Artist::findById($_REQUEST['numart']); // recherche l'artiste
-		$lesAlbums=$Artiste->getAlbums();
-		include("/vues/v_albumsPourArtiste.php");//puis on affiche la vue qui utilise les données
-		break;
+            //on fait appel à la méthode getAlbums d'Artist avec le numéro d'artiste
+            //on inclut la vue v_albArt qui affiche les albums
+            $Artiste=Artist::findById($_REQUEST['numart']); // recherche l'artiste
+            $lesAlbums=$Artiste->getAlbums();
+            include("/vues/v_albumsPourArtiste.php");//puis on affiche la vue qui utilise les données
+            break;
 		}
     case 'genre': //on vient de choisir un artiste on est repassé par index
 		{
-		//on fait appel à la méthode getAlbums d'Artist avec le numéro d'artiste
-		//on inclut la vue v_albArt qui affiche les albums
-		$Genre=Genre::trouverGenre($_REQUEST['numart']); // recherche l'artiste
-		$lesAlbums=$Genre->getAlbums();
-		include("/vues/v_albumsPourGenre.php");//puis on affiche la vue qui utilise les données
-		break;
+            //on fait appel à la méthode getAlbums d'Artist avec le numéro d'artiste
+            //on inclut la vue v_albArt qui affiche les albums
+            $Genre=Genre::trouverGenre($_REQUEST['numart']); // recherche l'artiste
+            $lesAlbums=$Genre->getAlbums();
+            include("/vues/v_albumsPourGenre.php");//puis on affiche la vue qui utilise les données
+            break;
 		}
 
 	default:echo "rien";

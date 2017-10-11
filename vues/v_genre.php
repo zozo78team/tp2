@@ -1,5 +1,6 @@
             <h2>Liste des genres</h2>
 			<section>
+				<a class="btn" href='index.php?uc=Genres&action=ajouter'>Ajouter un genre</a>
 			<table><tr><th>Numéro</th><th>Titre</th><th>Actions</th></tr>
 			<?php
 				foreach($lesGenres as $Genre) //parcours du tableau d'objets récupérés
@@ -14,8 +15,9 @@
                         <?php
                         //If (!empty( $_SESSION['connexion']))  si quelqu'un est connecté
                         //{ ?>
-                            <a href='index.php?uc=Genre&action=modifier&numart=<?php echo $id ?>' class="imageModifier" title="modifier le genre"></a>
-                            <span class="imageSupprimer" onclick="javascript:supprGenre('<?php echo $id ;?>')" title="supprimer le genre" ></span> <!-- on met un span pour pouvoir invoquer le on click -->
+                            <a href='index.php?uc=Genres&action=modifier&numart=<?php echo $id ?>' class="imageModifier" title="modifier le genre"></a>
+                            <a href='index.php?uc=Genres&action=supprimer&numart=<?php echo $id ?>' class="imageSupprimer" title="supprimer le genre"></a>
+
                         <?php // } ?>
 					</td>
 				</tr>

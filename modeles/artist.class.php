@@ -49,7 +49,15 @@ class Artist extends Entity{
         return $leArtist[0];
 		// ajouter la gestion des exceptions
     }
-
+    public static function rechercherArtiste($nom)
+    {
+        $nomparam = "%".$nom."%";
+        $sql="select * from artist where nom like ?";
+        $resultat=MonPdo::getInstance()->prepare($sql);
+        $resultat->execute(array($nomparam));
+        $artist=$resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Artist");
+        return $artist[0];
+    }
 	// modifie un objet Artiste
     public static function modifierArtiste($id,$nom)
     {

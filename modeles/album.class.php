@@ -48,7 +48,14 @@ class Album extends Entity{
 
     public static function ajouterAlbum($nom,$annee,$genre,$artist)
     {
-        // a compléter
+		$sql="insert into artist values('', :nom, :annee, :genre, :artist)" ;
+        $resultat=MonPdo::getInstance()->prepare($sql);
+        $resultat->bindParam(':nom', $nom);
+        $resultat->bindParam(':annee', $annee);
+        $resultat->bindParam(':genre', $genre);
+        $resultat->bindParam(':artiste', $artiste);
+        $resultat->execute();
+		// ajouter la gestion des exceptions
     }
     public static function supprimerAlbum($id)
     {

@@ -11,6 +11,9 @@ switch($action)
 					// a pas d'id puisqu'il est auto incrémenté et qu'il n'est donc pas connu avant l'ajout !
 					include("/vues/v_formArtiste.php");
 					break;
+    case 'rechercheArt':
+                    include("/vues/v_formRecherche.php");
+                    break;
 
 	case 'ajouter' :
 					include("/vues/v_formArtiste.php");
@@ -19,20 +22,43 @@ switch($action)
 	case 'VerifForm' :
 					if(!empty($_POST['idArtiste'])) // s'il s'agit d'une modification
 					{
-						// a compléter Artist::modifierArtiste($_POST['idArtiste'],$_POST['nomArtiste']);
+						Artist::modifierArtiste($_POST['idArtiste'],$_POST['nomArtiste']);
 						header("refresh: 0;url=index.php?uc=Artistes&action=all");
 					}
 					else // s'il s'agit d'un ajout
 					{
-						// a compléter Artist::ajouterArtiste($_POST['nomArtiste']);
+						Artist::ajouterArtiste($_POST['nomArtiste']);
 						header("refresh: 0;url=index.php?uc=Artistes&action=all");
 					}
 					break;
 
 	case 'supprimer' :
-					// a compléter Artist::supprimerArtist($_REQUEST['numart']);
+					Artist::supprimerArtist($_REQUEST['numart']);
 					header("refresh: 0;url=index.php?uc=Artistes&action=all");
 					break;
+
+	case 'artiste': //on vient de choisir un artiste on est repassé par index
+            {
+                //on fait appel à la méthode getAlbums d'Artist avec le numéro d'artiste
+                //on inclut la vue v_albArt qui affiche les albums
+                $Artiste=Artist::findById($_REQUEST['numart']); // recherche l'artiste
+                $leArtiste=$Artiste->findById();
+                include("/vues/v_artistePourAlbums.php");//puis on affiche la vue qui utilise les données
+                break;
+            }
+    case 'recherche':
+        {
+            //on va effectuer la recherche d'un artiste avec des éléments de celui-ci
+            if (!empty($_POST['nomart']))
+            {
+                $Artiste=Artist::rechercherArtiste($_REQUEST['nomart']);
+                $artistes = $Artiste->getNom();
+                include("/vues/v_searchArt.php");
+            }else{
+                echo "Vous n'avez pas séléctionner de nom";
+            }
+            break;
+        }
 	default: echo "rien";
 }
 ?>

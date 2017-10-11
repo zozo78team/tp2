@@ -4,7 +4,7 @@
 				<span class="opener">Les artistes<b></b></span>
 					<ul>
 						<li><a href="index.php?uc=Artistes&action=all">Liste des artistes</a></li>
-						<li><a href="#">Rechercher un artiste</a></li>
+						<li><a href="index.php?uc=Artistes&action=rechercheArt">Rechercher un artiste</a></li>
 					</ul>
 			</li>
 			<li class="first">
