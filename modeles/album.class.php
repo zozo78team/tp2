@@ -45,7 +45,15 @@ class Album extends Entity{
         $lesAlbums=$resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Album');
         return  $lesAlbums;
     }
-
+    public static function rechercherAlbum($nom)
+    {
+        $nomparam = "%".$nom."%";
+        $sql="select * from album where nom like ?";
+        $resultat=MonPdo::getInstance()->prepare($sql);
+        $resultat->execute(array($nomparam));
+        $lesAlbums=$resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Album");
+        return $lesAlbums;
+    }
     public static function ajouterAlbum($nom,$annee,$genre,$artist)
     {
 		$sql="insert into artist values('', :nom, :annee, :genre, :artist)" ;

@@ -6,18 +6,18 @@ switch($action)
 	case 'all': //pour afficher tous les albums
 		{
 			$lesGenres=Genre::getAllGenre(); //on fait appel  à la méthode d"accès aux données de la classe Album
-			include("/vues/v_genre.php");//puis on affiche la vue qui utilise les données
+			include("vues/v_genre.php");//puis on affiche la vue qui utilise les données
 			break;
 		}
 
 	case 'modifier' : // on appelle la même vue dans le cas d'un ajout ou d'une modification
 					// la distinction se fera sur le paramètre de l'id de l'artiste (si c'est un ajout il n'y
 					// a pas d'id puisqu'il est auto incrémenté et qu'il n'est donc pas connu avant l'ajout !
-					include("/vues/v_formGenre.php");
+					include("vues/v_formGenre.php");
 					break;
 
 	case 'ajouter' :
-					include("/vues/v_formGenre.php");
+					include("vues/v_formGenre.php");
 					break;
 
 	case 'VerifForm' :

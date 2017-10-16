@@ -46,9 +46,35 @@ h1,h2,h3,h4 {
 	font-weight: normal;
 	letter-spacing: -1px;
 }
-
+h2{
+    font-size: 2.25em;
+}
+/*
 h2 {
 	font-size: 2.25em;
+    animation: patate 5s infinite;
+    transform-origin: center;
+    height: 50vh;
+}
+
+@keyframes patate{
+    0%{
+        color: red;
+        transform: rotateY(0deg);
+    }
+    50% {
+        color: blue;
+        transform: rotateY(180deg);
+    }
+    100%{
+        color: red;
+        transform: rotateY(360deg);
+    }
+}*/
+
+h2:hover{
+    color: aqua;
+
 }
 
 h2,h3,h4 {

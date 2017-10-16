@@ -56,7 +56,7 @@ class Artist extends Entity{
         $resultat=MonPdo::getInstance()->prepare($sql);
         $resultat->execute(array($nomparam));
         $artist=$resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Artist");
-        return $artist[0];
+        return $artist;
     }
 	// modifie un objet Artiste
     public static function modifierArtiste($id,$nom)

@@ -17,7 +17,7 @@
 				<span class="opener">Les albums<b></b></span>
 					<ul>
 						<li><a href="index.php?uc=Albums&action=all">Liste des albums</a></li>
-						<li><a href="#">Rechercher un album</a></li>
+						<li><a href="index.php?uc=Albums&action=rechercheAlb">Rechercher un album</a></li>
 					</ul>
 			</li>
 		</ul>
