@@ -54,24 +54,39 @@ class Album extends Entity{
         $lesAlbums=$resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Album");
         return $lesAlbums;
     }
-    public static function ajouterAlbum($nom,$annee,$genre,$artist)
+    public static function ajouterAlbum($nom,$annee,$genre,$artiste)
     {
-		$sql="insert into artist values('', :nom, :annee, :genre, :artist)" ;
+		$sql="insert into album values(null, :nom, :annee, :genre, :alb_art)" ;
         $resultat=MonPdo::getInstance()->prepare($sql);
         $resultat->bindParam(':nom', $nom);
         $resultat->bindParam(':annee', $annee);
         $resultat->bindParam(':genre', $genre);
-        $resultat->bindParam(':artiste', $artiste);
+        $resultat->bindParam(':alb_art', $artiste);
         $resultat->execute();
 		// ajouter la gestion des exceptions
     }
     public static function supprimerAlbum($id)
     {
-        // a compléter
+        $sql="delete from album where id= :id " ;
+        $resultat=MonPdo::getInstance()->prepare($sql);
+        $resultat->bindParam(':id', $id);
+        $resultat->execute();
     }
-    public static function findById($id)
+    public static function trouverAlbum($id)
     {
-        // a compléter
+        $sql="SELECT nom FROM album where id= ?" ;
+        $resultat=MonPdo::getInstance()->prepare($sql); // prépare la requête
+        $resultat->execute(array($id)); // applique le paramètre
+        $lesAlbums=$resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Album"); // lit la ligne et renvoie un objet Artist
+        return $lesAlbums[0];
+		// ajouter la gestion des exceptions
+    }
+	public static function modifierAlbum($id,$nom)
+    {
+		// a completer
+        $sql="update album set nom= ? where id= ?" ;
+        $resultat=MonPdo::getInstance()->prepare($sql); // prépare la requête
+        $resultat->execute(array($nom,$id)); // applique le paramètre
     }
 
 }

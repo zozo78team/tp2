@@ -21,7 +21,7 @@ class Genre extends Entity{
     */
     public static function ajouterGenre($nom)
     {
-		$sql="insert into genre values('', :nom )" ;
+		$sql="insert into genre values(null, :nom )" ;
         $resultat=MonPdo::getInstance()->prepare($sql);
         $resultat->bindParam(':nom', $nom);
         $resultat->execute();
@@ -57,6 +57,15 @@ class Genre extends Entity{
         $sql="update genre set nom= ? where id= ?" ;
         $resultat=MonPdo::getInstance()->prepare($sql); // prépare la requête
         $resultat->execute(array($nom,$id)); // applique le paramètre
+    }
+	public static function rechercherArtiste($nom)
+    {
+        $nomparam = "%".$nom."%";
+        $sql="select * from genre where nom like ?";
+        $resultat=MonPdo::getInstance()->prepare($sql);
+        $resultat->execute(array($nomparam));
+        $artist=$resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Genre");
+        return $lesGenres;
     }
     public function getAlbums()
     {

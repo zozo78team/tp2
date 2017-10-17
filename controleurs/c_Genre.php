@@ -37,6 +37,21 @@ switch($action)
 					Genre::supprimerGenre($_REQUEST['numart']);
 					header("refresh: 0;url=index.php?uc=Genres&action=all");
 					break;
+    case 'rechercheGenre':
+                    include("vues/v_formRerchercheGenre.php");
+                    break;
+	case 'recherche':
+        {
+            //on va effectuer la recherche d'un artiste avec des éléments de celui-ci
+            if (!empty($_POST['nomgenre']))
+            {
+                $lesGenres=Genre::rechercherGenre($_REQUEST['nomgenre']);
+                include("vues/v_searchGenre.php");
+            }else{
+                echo "Vous n'avez pas séléctionner de nom";
+            }
+            break;
+        }
 
 	default:echo "rien";
 	}

@@ -11,6 +11,7 @@
 				<span class="opener">Les genres<b></b></span>
 					<ul>
 						<li><a href="index.php?uc=Genres&action=all">Liste des genres</a></li>
+						<li><a href="index.php?uc=Genre&action=rechercheGenre">Rechercher un genre</a></li>
 					</ul>
 			</li>
 			<li class="first">
