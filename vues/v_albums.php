@@ -13,7 +13,7 @@
 				<tr>
 					<td width=5%><?php echo $id?></td><td width=40%><?php echo $titre?></td><td><?php echo $annee?></td><td><?php echo $genre?></td><!--affichage dans des liens-->
 					<td class='action' width=15%>
-					    <a href='index.php?uc=Albums&action=ListeMor&numart=<?php echo $id ?>' class="imageRechercher" title='Voir la liste de morceau de cette album '></a>
+					    <a href='index.php?uc=Albums&action=ListeMor&numalb=<?php echo $id ?>' class="imageRechercher" title='Voir la liste de morceau de cette album '></a>
 						<a href='index.php?uc=Albums&action=modifier&numalb=<?php echo $id ?>' class="imageModifier" title="modifier l'album"></a>
 						<a href='index.php?uc=Albums&action=supprimer&numalb=<?php echo $id?>' class="imageSupprimer" title="supprimer l'album" ></a>
 					</td>

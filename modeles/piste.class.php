@@ -1,9 +1,9 @@
 <?php
-class Genre {
-	protected $p_alb;
-    protected $p_mor;
-	protected $p_duree;
-	protected $p_num;
+class Piste {
+	private $p_alb;
+    private $p_mor;
+	private $p_duree;
+	private $p_num;
 
     public function getPAlb()
     {
@@ -46,7 +46,7 @@ class Genre {
     {
         $sql="SELECT * FROM piste " ;
         $resultat=MonPdo::getInstance()->query($sql);
-        $lesGenre=$resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Piste');
+        $lesPistes=$resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Piste');
         return $lesPistes;
 		throw new Exception("Problème dans l'execution de la requête.") ;
     }
@@ -55,8 +55,8 @@ class Genre {
         $sql="SELECT * FROM piste where p_alb= ?" ;
         $resultat=MonPdo::getInstance()->prepare($sql); // prépare la requête
         $resultat->execute(array($id)); // applique le paramètre
-        $laPiste=$resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Artist"); // lit la ligne et renvoie un objet Artist
-        return $leArtist[0];
+        $laPiste=$resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Piste"); // lit la ligne et renvoie un objet Artist
+        return $laPiste;
 		// ajouter la gestion des exceptions
     }
 

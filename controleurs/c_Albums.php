@@ -69,7 +69,10 @@ switch($action)
 					header("refresh: 0;url=index.php?uc=Albums&action=all");
 				}
 				break;
-
+	case 'ListeMor' :
+				$laPiste = Piste::trouverViaAlb($_REQUEST['numalb']);
+				include("vues/v_morceau.php");
+				break;
 	default:echo "rien";
 	}
 	?>

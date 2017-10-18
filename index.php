@@ -6,6 +6,8 @@ require_once("modeles/entity.class.php");
 require_once("modeles/Artist.class.php");
 require_once("modeles/Album.class.php");
 require_once("modeles/genre.class.php");
+require_once("modeles/piste.class.php");
+require_once("modeles/morceau.class.php");
 
 include("vues/v_entete.php") ;//bandeau en-tête
 include("vues/v_menu.php") ;//menu
@@ -32,6 +34,10 @@ switch($uc) //suivant le contrôleur dans uc
     case 'Genres' :                                  //on va au contrôleur secondaire c_genre
         include("controleurs/c_Genre.php");
         break;
+
+	case 'Morceau' :
+		include("controleurs/c_Morceau.php");
+		break;
 }
 include("vues/v_pied.php") ;// pied de site
 ?>
